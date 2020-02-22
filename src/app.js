@@ -26,21 +26,21 @@ app.use(express.static(publicDirectoryPath))
 app.get('', (req, res)=>{
     res.render('index', {
         title: 'Weather',
-        name: 'Irene Chow'
+        name: 'Irene K'
     })
 })
 
 app.get('/about', (req, res)=>{
     res.render('about', {
         title: 'About',
-        name: 'Irene Chow'
+        name: 'Irene K'
     })
 })
 
 app.get('/help', (req, res)=>{
     res.render('help', {
         title: 'Help',
-        name: 'Irene Chow',
+        name: 'Irene K',
         message: 'This is the help page, hopefully you can find the solution'
     })
 })
@@ -61,22 +61,18 @@ app.get('/weather', (req, res)=>{
                     return res.send({error})
                 } 
                 res.send({
-                    summary: data.summary,
-                    temperature: data.temperature,
-                    timeZone: data.timeZone,
-                    rainChance: 0,
+                    forecastData: data.forecastData,
                 })
-                })
-            }
-        })
+            })
+        }
     })
 
-
+})
 app.get('/help/*', (req, res)=>{
     res.render('404',{
         title: 'Error occurs!',
         message: 'Help article is not found!',
-        name: 'Irene Chow'
+        name: 'Irene K'
     } )
 })
 
@@ -96,7 +92,7 @@ app.get('*', (req, res)=>{
     res.render('404', {
         title: 'Error occurs',
         message: 'Page is not found!',
-        name: 'Irene Chow'
+        name: 'Irene K'
     })
 
 })

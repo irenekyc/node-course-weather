@@ -27,11 +27,13 @@ const forecast = (latitude, longititude, callback) =>{
             callback('The location is not defined, please check and try again later!', undefined)
         } else {
             callback(undefined, {
-                summary: response.body.daily.data[0].summary,
+                summary: response.body.daily.summary,
+                maxTemp: response.body.daily.data[0].temperatureHigh,
+                minTemp: response.body.daily.data[0].temperatureLow,
                 temperature: response.body.currently.temperature,
                 rainChance: response.body.currently.precipProbability,
-                timeZone: response.body.timezone
-
+                timeZone: response.body.timezone,
+                forecastData: 'It is ' + response.body.daily.summary + ' The maximum temperature is ' + response.body.daily.data[0].temperatureHigh + ' degree out and lowest temperature is ' + response.body.daily.data[0].temperatureLow +' degree out today.'
             })
         }
     })
