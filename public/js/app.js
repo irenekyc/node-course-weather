@@ -1,7 +1,9 @@
 
 //fetch > then : async function, you request to get data from a JSON file and get the data
-
-const url = 'http://localhost:3000/weather?address='
+//this is only local environment
+//const url = 'http://localhost:3000/weather?address='
+//to run on heroku remove localhost:3000
+const url='/weather?address='
 
 const weatherForm = document.querySelector('form')
 const search = document.querySelector('input')

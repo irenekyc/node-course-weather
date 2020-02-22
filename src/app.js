@@ -5,6 +5,8 @@ const geocode = require ('./utils/geocode.js')
 const forecast = require ('./utils/forecast.js')
 
 const app = express()
+//when we want to upload to heroku || 3000 means locally (default setting)
+const port = process.env.PORT || 3000
 
 // Define paths for express config
 const publicDirectoryPath = path.join(__dirname, '../public')
@@ -98,6 +100,12 @@ app.get('*', (req, res)=>{
     })
 
 })
-app.listen(3000, ()=> {
-    console.log('Server is up!')
+
+//app listen only apply to locally run
+// app.listen(3000, ()=> {
+//     console.log('Server is up!')
+// })
+
+app.listen(port, ()=>{
+    console.log('Server is now up on ' + port)
 })
